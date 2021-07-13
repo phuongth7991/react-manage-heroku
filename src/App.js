@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { findIndex, filter } from 'lodash'
+import { findIndex } from 'lodash'
 import './App.css'
 
 import Header from './components/Header'
@@ -169,35 +169,35 @@ class App extends Component {
       tasks,
       isDisplayForm,
       taskEditing,
-      // filter,
+      filter,
       keyword,
       sortBy,
       sortValue,
     } = this.state
 
-    // if (filter) {
-    //   if (filter.name) {
-    //     tasks = tasks.filter((task) => {
-    //       return task.name.toLowerCase().indexOf(filter.name) !== -1
-    //     })
-    //   }
-    //   tasks = tasks.filter((task) => {
-    //     if (filter.status === -1) {
-    //       return task
-    //     } else {
-    //       return task.status === (filter.status === 1)
-    //     }
-    //   })
-    // }
+    if (filter) {
+      if (filter.name) {
+        tasks = tasks.filter((task) => {
+          return task.name.toLowerCase().indexOf(filter.name) !== -1
+        })
+      }
+      tasks = tasks.filter((task) => {
+        if (filter.status === -1) {
+          return task
+        } else {
+          return task.status === (filter.status === 1)
+        }
+      })
+    }
 
     if (keyword) {
-      // tasks = tasks.filter((task) => {
-      //   return task.name.toLowerCase().indexOf(keyword) !== -1
-      // })
-      // Todo: use lodash to control business
-      tasks = filter(tasks, (task) => {
-        return task.name.toLowerCase().indexOf(keyword.toLocaleString()) !== -1
+      tasks = tasks.filter((task) => {
+        return task.name.toLowerCase().indexOf(keyword) !== -1
       })
+      // Todo: use lodash to control business
+      // tasks = filter(tasks, (task) => {
+      //   return task.name.toLowerCase().indexOf(keyword.toLocaleString()) !== -1
+      // })
     }
 
     if (sortBy === 'name') {
