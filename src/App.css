@@ -1,10 +1,19 @@
 .App {
   text-align: center;
+  font-family: "Segoe UI Light", 'sans-serif', "Roboto Light";
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+.sort-selected::after{
+  content: '\f00c';
+  font-family: FontAwesome, serif;
+  font-weight: normal;
+  font-style: normal;
+  margin: 0 0 0 10px;
+  display: inline-block;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -36,3 +45,5 @@
     transform: rotate(360deg);
   }
 }
+
+
